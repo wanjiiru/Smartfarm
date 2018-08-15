@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="ui grid">
+<div class="four wide column"></div>
+
+<div class="eight wide column card">
+  <div class="card-header">
+    Register
+  </div>
+  <div class="card-body">
+    <form action="/accounts/register/" method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button type="submit" class="btn btn-block btn-outline-info">Register</button>
+    </form>
+  </div>
+  <div class="card-footer">
+    <p class="center aligned"><b>Already have an account? Login <a href="/accounts/login/">here</a></b></p>
+  </div>
+</div>
+
+<div class="four wide column"></div>
+</div>
+
+{% endblock %}
