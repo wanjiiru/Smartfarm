@@ -1,0 +1,29 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        SmartFarm
+    </title>
+    {% block styles %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+      {% bootstrap_css %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+  </body>
+</html>
