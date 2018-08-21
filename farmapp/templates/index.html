@@ -1,5 +1,171 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
 {% block content %}
-  {% include 'navbar.html' %}
-<h1>Smart Farm Works</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Crop Disease Diagnosis and Chemical Recommendations">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shamba Doctor </title>
+
+
+	<!-- Fallback to homescreen for Chrome <39 on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="CropDiagnosis">
+    <link rel="shortcut icon" href="{% static 'images/wixlogo.jpg' %}" />
+
+
+	<!-- Page styles -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
+</head>
+<body>
+
+<header class="app-bar promote-layer">
+	<div class="app-bar-container" style="background-color: #97e6a9">
+		<h1 class="logo"><img src="{% static 'images/wixlogo.jpg' %}" alt="smartshamba" style="border-radius: 60%;"></h1>
+	</div>
+</header>
+
+
+<nav class="navdrawer-container promote-layer">
+	<h4>Navigation</h4>
+	<ul>
+		<li><a href="#about">About</a></li>
+		<li><a href="{% url 'how' %}">How it works</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li><a href="#excellence">Excellence</a></li>
+	</ul>
+</nav>
+
+<main>
+
+	<section class="styleguide__page-header">
+		<div class="page-header">
+            <hr>
+			<div class="container">
+				<p class="page-header__excerpt g-wide--push-1 g-wide--pull-1">
+					Shamba Doctor is a ​mobile application aiming to improve pest management decisions by making crop diagnosis more accurate,
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<ul class="list-guides-intro list-centered list--reset clear">
+				<li class="g--third theme--green">
+					<a class="themed">
+						<span class="icon-circle--large themed--background"><i class="fa fa-leaf" aria-hidden="true"></i></span>
+						<h3 class="large text-divider">Crop Disease <br>Recognition</h3>
+					</a>
+					<p>Automated diagnosis through a smart questionnaire</p>
+				</li>
+				<li class="g--third theme--green">
+					<a class="themed">
+						<span class="icon-circle--large themed--background"><i class="fa fa-leaf" aria-hidden="true"></i></span>
+						<h3 class="large text-divider">Treatment<br>Recommendation</h3>
+					</a>
+					<p>Personalized list of matching crop diseases </p>
+				</li>
+				<li class="g--third theme--green g--last">
+					<a class="themed">
+						<span class="icon-circle--large themed--background"><i class="fa fa-car" aria-hidden="true"></i></span>
+						<h3 class="large text-divider">Application<br>Instructions</h3>
+					</a>
+					<p>Detailed and accurate</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+</main>
+
+<section>
+	<div class="featured-spotlight">
+		<div class="container-medium">
+			<div class="featured-spotlight__container g--pull-half">
+				<div class="featured-spotlight__img">
+					<img src="{% static 'images/eggplant.jpeg' %}" alt="wide image placeholder example">
+				</div>
+				<div class="container-small">
+					<h3 class="large" id="excellence">Technical Excellence</h3>
+					<p>
+						Why is technical excellence so important to us? Because it means we can offer our clients best in practice
+						solutions they can value and trust. The research and development team consists of highly qualified and experienced
+						programmers and researchers. They are dedicated problem solvers who handle not only software development, but also
+						other IT works, such as project analysis, design, documenting and testing.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section>
+	<div class="container">
+		<h2>Subscribe to our mailing list</h2>
+		<p>
+			Receive updates about Shamba Doctor in your mailbox by subscribing to our mailing list.
+		</p>
+		<!-- Begin MailChimp Signup Form -->
+		<div id="mc_embed_signup">
+			<form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				<div id="mc_embed_signup_scroll">
+					<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+					<div class="mc-field-group">
+						<label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+					</div>
+					<div class="mc-field-group">
+						<label for="mce-FNAME">First Name </label>
+						<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+					</div>
+					<div class="mc-field-group">
+						<label for="mce-LNAME">Last Name </label>
+						<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+					</div>
+					<div id="mce-responses" class="clear">
+						<div class="response" id="mce-error-response" style="display:none"></div>
+						<div class="response" id="mce-success-response" style="display:none"></div>
+					</div>
+					<div style="position: absolute; left: -5000px;"><input type="text" name="b_9c5d91d5f2b87af16345f140a_5774718956" tabindex="-1" value=""></div>
+					<div class="clear">
+						<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]="EMAIL";ftypes[0]="email";fnames[1]="FNAME";ftypes[1]="text";fnames[2]="LNAME";ftypes[2]="text";}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+		<!--End mc_embed_signup-->
+	</div>
+</section>
+
+<section>
+        <nav class="navdrawer-container promote-layer" id="contact">
+            <div class="container text-center">
+                <p>Contact</p>
+			<blockquote style="text-align: center">
+				E-mail: <a href="mailto:liz240@live.com">info@shambadoc.co.ke</a>
+			</blockquote>
+            </div>
+
+		<p style="text-align: center;">
+			<a href="#" target="_blank">
+				<img alt="Android app on Google Play" src="{% static 'images/playstore.png' %}"  style="width: 10%;"/>
+			</a>
+		</p>
+        </nav>
+</section>
+
+
+</body>
+</html>
+
 {% endblock %}
