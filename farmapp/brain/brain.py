@@ -16,12 +16,11 @@ with tf.gfile.FastGFile(PATH_TO_MODEL, 'rb') as f:
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
     sess = tf.Session()
-
+prob_tensor = sess.graph.get_tensor_by_name('loss:0')
 
 def recognise(uploads):
     image = Image.open(uploads)
     augmented_image = prepareimage(image)
-    prob_tensor = sess.graph.get_tensor_by_name('loss:0')
     predictions, = sess.run(prob_tensor, {'Placeholder:0': [augmented_image]})
     results = list(zip(labels, map(lambda d: '{:.2f}'.format(d * 100), predictions)))
     results.sort(key=lambda x: -float(x[1]))
