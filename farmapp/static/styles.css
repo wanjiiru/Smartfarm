@@ -1,0 +1,24 @@
+.card{
+  margin-top: 50px;
+
+}
+.register{
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0) ), url("./images/farm2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+.register img{
+
+}
+.card-header{
+  background-color: #26D3C2;
+}
+.card-footer{
+    background-color: #26D3C2;
+    text-align: center;
+}
+small{
+  display: none!important;
+}
