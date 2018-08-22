@@ -1,4 +1,5 @@
 {% load bootstrap4 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,6 +10,7 @@
     {% block styles %}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
       {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'styles.css' %}">
     {% endblock %}
   </head>
   <body>
@@ -17,6 +19,7 @@
     {% endblock %}
 
     {% block scripts %}
+      <script type="text/javascript" src="{% static '/scripts.js' %}"></script>
       <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
