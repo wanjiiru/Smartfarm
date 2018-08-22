@@ -6,7 +6,6 @@ from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.db import transaction
 from .models import Profile
-from .forms import UserForm, ProfileForm
 from .models import Image
 from .brain.brain import recognise
 from .forms import ImageForm
