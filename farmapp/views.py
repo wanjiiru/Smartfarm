@@ -18,14 +18,13 @@ def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            # add=form.save(commit=False)
-            # add.owner = current_user
+            add=form.save(commit=False)
             image = next(request.FILES.values()).read()
             results = recognise(BytesIO(image))
 
             buffer = b64encode(image)
 
-            # add.save()
+            add.save()
             return render(request, 'results.html', locals())
     else:
         form = ImageForm()

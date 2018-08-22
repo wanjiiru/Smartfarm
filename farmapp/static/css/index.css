@@ -1744,7 +1744,7 @@ h3 {
 @media only screen and (min-width:800px) {
     .large,
     h3 {
-        font-family: "Roboto Condensed", Helvetica, sans-serif;
+        font-family:  sans-serif;
         font-size: 26px;
         font-weight: 300;
         line-height: 1.0000em;
@@ -1755,8 +1755,9 @@ h3 {
 
 .xlarge,
 h2 {
-    font-family: "Roboto Condensed", Helvetica, sans-serif;
-    font-size: 20px;
+
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
     font-weight: 300;
     line-height: 1.0000em;
     padding-top: 1.0000em;
@@ -1767,7 +1768,7 @@ h2 {
     .xlarge,
     h2 {
         font-family: "Roboto Condensed", Helvetica, sans-serif;
-        font-size: 42px;
+        font-size: 32px;
         font-weight: 300;
         line-height: 1.2381em;
         padding-top: .6190em;
@@ -1775,10 +1776,10 @@ h2 {
     }
 }
 
-.xxlarge,
+.large,
 h1 {
-    font-family: "Roboto Condensed", Helvetica, sans-serif;
-    font-size: 42px;
+    font-family: sans-serif,Helvetica;
+    font-size: 32px;
     font-weight: 300;
     line-height: 1.2381em;
     padding-top: .6190em;
@@ -1786,9 +1787,9 @@ h1 {
 }
 
 @media only screen and (min-width:800px) {
-    .xxlarge,
+    .large,
     h1 {
-        font-family: "Roboto Condensed", Helvetica, sans-serif;
+        font-family:sans-serif,Helvetica;
         font-size: 68px;
         font-weight: 300;
         line-height: 1.1471em;
@@ -1798,8 +1799,7 @@ h1 {
 }
 
 .huge {
-    font-family: "Roboto Condensed", Helvetica, sans-serif;
-    font-size: 68px;
+    font-family: sans-serif,Helvetica;
     font-weight: 300;
     line-height: 1.1471em;
     padding-top: .3824em;

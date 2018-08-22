@@ -34,6 +34,7 @@ MODE = config("MODE", default="dev")
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.gis',
     'farmapp',
     'bootstrap4',
     'django.contrib.admin',
@@ -88,7 +89,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.contrib.gis.db.backends.postgis',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
