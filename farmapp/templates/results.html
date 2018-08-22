@@ -36,15 +36,24 @@
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                <input type="submit" class="btn btn-success btn-lg" value="POST">
-            </form>
+<div class="row">
+    {% for disease,percentage in results.items %}
+        <div class="col-md-4">
+            <div class="card" style="width:auto; margin-bottom: 15px; margin-top: 15px;">
+                <h5 style="text-align: center">{{  disease}}</h5>
+                <hr>
+                <img class="card-img-top" src="data:image/png;base64, {{ buffer }}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">{{ percentage }}% Match </h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                </div>
+            </div>
         </div>
-    </div>
+    {% endfor %}
 </div>
-{{ form.media }}
+    <hr>
+</div>
+</body>
+</html>
+
 {% endblock %}

@@ -8,7 +8,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Crop Disease Diagnosis and Chemical Recommendations">
+	<meta name="description" content="Crop Disease Diagnosis and Recommendations">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Shamba Doctor </title>
 
@@ -37,6 +37,7 @@
 	<ul>
 		<li><a href="#about">About</a></li>
 		<li><a href="{% url 'how' %}">How it works</a></li>
+        <li><a href="{% url 'upload_image' %}">Upload Image</a></li>
 		<li><a href="#contact">Contact</a></li>
 		<li><a href="#excellence">Excellence</a></li>
 	</ul>
@@ -124,11 +125,11 @@
 						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 					</div>
 					<div class="mc-field-group">
-						<label for="mce-FNAME">First Name </label>
+						<label>First Name </label>
 						<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
 					</div>
 					<div class="mc-field-group">
-						<label for="mce-LNAME">Last Name </label>
+						<label>Last Name </label>
 						<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
 					</div>
 					<div id="mce-responses" class="clear">
@@ -142,7 +143,6 @@
 				</div>
 			</form>
 		</div>
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]="EMAIL";ftypes[0]="email";fnames[1]="FNAME";ftypes[1]="text";fnames[2]="LNAME";ftypes[2]="text";}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 		<!--End mc_embed_signup-->
 	</div>
 </section>
