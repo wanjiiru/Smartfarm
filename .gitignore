@@ -1,2 +1,4 @@
-virtenv/
+virtual/
 .env
+.vscode/
+virtenv/
