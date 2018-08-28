@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navdrawer-container promote-layer">
+	<h4>Navigation</h4>
+	<ul>
+		<li><a href="{% url 'index' %}">Home</a></li>
+		<li><a href="{% url 'how' %}">How it works</a></li>
+        <li><a href="{% url 'upload_image' %}">Upload Image</a></li>
+		<li><a href="#contact">Contact</a></li>
+	</ul>
+</nav>
+{% endblock %}

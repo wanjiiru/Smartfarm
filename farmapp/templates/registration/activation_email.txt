@@ -1,0 +1,11 @@
+We're happy to see you here {{user}}!
+
+Welcome to Smart Farm, a place where we have all the data to help you know what diseases are affecting your crops.
+All you have to do is take a picture of the ailing plant, and we'll give you feedback immediately on what disease your
+plant is suffering from and ways to deal with that disease.
+
+Use this activation link http://{{ site.domain }}{% url 'registration_activate' activation_key %} to activate your account on smart farm
+NB: This link will expire in {{expiration_days}} days.
+
+Regards,
+Smart Farm Team.

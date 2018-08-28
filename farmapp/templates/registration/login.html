@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="ui grid register">
+<div class="five wide column"></div>
+
+<div class="six wide column card" style="margin-bottom: 278px;padding:0px;">
+  <div class="card-header">
+    <h3 class="ui header center aligned text-white">LOGIN</h3>
+  </div>
+  <div class="card-body">
+    <form class="form-group" action="/accounts/login/" method="post">
+       {% csrf_token %}
+       {% bootstrap_form form %}
+       <input type="submit" class="btn btn-block btn-outline-info" value="Login">
+     </form>
+     <hr>
+     <p style="margin-left:250px;"><b>or</b></p>
+       <a href="{% url 'social:begin' 'google-oauth2' %}?next=/">
+         <img id="signInButton" src="http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png"
+          onclick="document.getElementById('signInButton').src='http://www.setyourowntests.com/_/rsrc/1468869481521/help/accounts/btn_google_signin_dark_normal_web%402x.png'"
+          style="width:250px;margin-left:140px;">
+       </a>
+     <hr>
+  </div>
+  <div class="card-footer">
+    <p class="uicenter aligned text-white"><b>Don't have an account? Register <a href="/accounts/register/">here</a></b></p>
+  </div>
+</div>
+
+<div class="five wide column"></div>
+</div>
+
+{% endblock %}

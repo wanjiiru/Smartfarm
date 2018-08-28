@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% include 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Crop Disease Diagnosis and treatment Recommendations">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shamba Doctor </title>
+
+
+	<!-- Fallback to homescreen for Chrome <39 on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="ShambaDoctor">
+    <link rel="shortcut icon" href="{% static 'images/wixlogo.jpg' %}" />
+
+
+
+	<!-- Page styles -->
+	<link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
+</head>
+<body>
+
+<header class="app-bar promote-layer">
+	<div class="app-bar-container" style="background-color: #97e6a9">
+		<h1 class="logo"><img src="{% static 'images/wixlogo.jpg' %}" alt="smartshamba" style="border-radius: 60%;"></h1>
+
+	</div>
+
+</header>
+
+<div class="container">
+  {% include 'navbar.html' %}
+<div class="row">
+    {% for disease,percentage in results.items %}
+        <div class="col-md-4">
+            <div class="card" style="width:auto; margin-bottom: 15px; margin-top: 15px;">
+                <h5 style="text-align: center">{{  disease}}</h5>
+                <hr>
+                <img class="card-img-top" src="data:image/png;base64, {{ buffer }}" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h4 class="card-title">{{ percentage }}% Match </h4>
+                    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    <hr>
+</div>
+</body>
+</html>
+
+{% endblock %}

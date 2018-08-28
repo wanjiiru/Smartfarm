@@ -1,0 +1,38 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+        Shamba Doctor
+    </title>
+
+
+    {% block styles %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
+        <link rel="shortcut icon" href="{% static 'images/wixlogo.jpg' %}" type="image/x-icon">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        {% bootstrap_css %}
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% endblock %}
+  </head>
+  <body>
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+      <script type="text/javascript" src="{% static '/scripts.js' %}"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+      </script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+      {% bootstrap_javascript %}
+    {% endblock %}
+  </body>
+</html>
