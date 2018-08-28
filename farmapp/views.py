@@ -13,7 +13,7 @@ from base64 import b64encode
 from io import BytesIO
 
 # Create your views here.
-@login_required
+
 def index(request):
     return render(request, 'index.html', {})
 
