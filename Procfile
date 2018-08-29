@@ -1,1 +1,1 @@
-web: gunicorn smartfarm.wsgi
+web:gunicorn smartfarm.wsgi
