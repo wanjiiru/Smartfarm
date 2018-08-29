@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.db import transaction
-from .models import Profile
+from .models import Profile,Diseases
 from .models import Image
 from .brain.brain import recognise
 from .forms import ImageForm
@@ -13,7 +13,6 @@ from base64 import b64encode
 from io import BytesIO
 
 # Create your views here.
-@login_required
 def index(request):
     return render(request, 'index.html', {})
 
@@ -43,8 +42,10 @@ def add_image(request):
             add=form.save(commit=False)
             image = next(request.FILES.values()).read()
             results = recognise(BytesIO(image))
-
             buffer = b64encode(image)
+
+            results = [[Diseases.objects.get(pk = dis+1),prob] for dis,prob in results]
+            
 
             add.save()
             return render(request, 'results.html', locals())

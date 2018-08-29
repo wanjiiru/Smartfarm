@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import datetime as dt
+from django.contrib.postgres.fields import ArrayField
+
+
+
 
 # Create your models here.
 class Profile(models.Model):
@@ -82,4 +86,17 @@ class Image(models.Model):
     def __str__(self):
         return self.pic
 
-        
+
+class Diseases(models.Model):
+    name = models.TextField()
+    Image = models.ImageField(upload_to='gross')
+    control = models.TextField()
+    symptoms = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class detect(models.Model):
+    location = models.TextField()
+    disease = models.ForeignKey(Diseases)
