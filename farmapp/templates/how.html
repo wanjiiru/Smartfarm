@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% include 'navbar.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Crop Disease Diagnosis and treatment Recommendations">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shamba Doctor </title>
+
+
+	<!-- Fallback to homescreen for Chrome <39 on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="ShambaDoctor">
+    <link rel="shortcut icon" href="{% static 'images/wixlogo.jpg' %}" />
+
+
+
+	<!-- Page styles -->
+    <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
+</head>
+<body>
+
+<header class="app-bar promote-layer">
+	<div class="app-bar-container" style="background-color: #97e6a9">
+		<h1 class="logo"><img src="{% static 'images/wixlogo.jpg' %}" alt="smartshamba" style="border-radius: 60%;" href="/"></h1>
+
+	</div>
+
+</header>
+
+
+
+	<section class="styleguide__guides-section">
+		<div class="guides-section">
+			<header class="container">
+				<h4 id="modus-operandi" class="xxlarge">How it Works</h4>
+				<p>
+					By evaluating the plant's details and threat’s characteristics as entered by the user through a smart questionnaire,
+                    the app suggests the most likely crop disease.
+				</p>
+			</header>
+			<ul class="guides-list container-medium">
+				<li class="guides-list__item g--half theme--orange">
+					<div class="primary-content">
+						<h3 class="xlarge">
+							<a class="themed">Login with your Google Account</a>
+						</h3>
+						<p>
+							Shamba Doctor lets you easily sigh in
+                            to the application your using your existing Google account
+
+					</div>
+					<div class="secondary-content">
+						<span class="icon-circle themed--background"><i class="icon">1</i></span>
+						<ol class="list-links list-links--secondary">
+							<li><a href="#">
+								<img src="{% static 'images/pexels-photo-96715.jpeg' %}">
+							</a></li>
+						</ol>
+					</div>
+				</li>
+				<li class="guides-list__item g--half theme--orange g--last">
+					<div class="primary-content">
+						<h3 class="xlarge">
+							<a class="themed">Answer a few questions</a>
+						</h3>
+						<p>
+							In order to help Shamba Doctor recognize the problem, the user needs to answer a smart questionnaire.
+							Then, the app suggests the most likely diagnosis.
+						</p>
+					</div>
+					<div class="secondary-content">
+						<span class="icon-circle themed--background"><i class="icon">2</i></span>
+						<ol class="list-links list-links--secondary">
+							<li><a href="#">
+								<img src=" {% static 'images/pexels-photo-974316.jpeg' %}">
+							</a></li>
+						</ol>
+					</div>
+				</li>
+				<li class="guides-list__item g--half theme--orange">
+					<div class="primary-content">
+						<h3 class="xlarge">
+							<a class="themed">Select a clear crop image disease </a>
+						</h3>
+						<p>
+							The app presents a filtered list of matching results
+                            diseases) and suggests ways to control them
+						</p>
+					</div>
+					<div class="secondary-content">
+						<span class="icon-circle themed--background"><i class="icon">3</i></span>
+						<ol class="list-links list-links--secondary">
+							<li><a href="#">
+								<img src="{% static 'images/pexels-photo-1112080.jpeg' %}">
+							</a></li>
+						</ol>
+					</div>
+				</li>
+				<li class="guides-list__item g--half theme--orange g--last">
+					<div class="primary-content">
+						<h3 class="xlarge">
+							<a class="themed">Get app instructions</a>
+						</h3>
+						<p>
+							With a given image selected, the application proceeds with the presentation of detailed and personalised
+							application instructions.
+						</p>
+					</div>
+					<div class="secondary-content">
+						<span class="icon-circle themed--background"><i class="icon">4</i></span>
+						<ol class="list-links list-links--secondary">
+							<li><a href="#">
+								<img src="{% static 'images/logo.jpeg' %}">
+							</a></li>
+						</ol>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</section>
+<section>
+        <nav class="navdrawer-container promote-layer " style="background-color: rgba(0,0,0,.87);" id="contact">
+            <div class="container text-center">
+                <p>Contact</p>
+			<blockquote style="text-align: center">
+				E-mail: <a href="mailto:liz240@live.com">info@shambadoc.co.ke</a>
+			</blockquote>
+            </div>
+
+		<p style="text-align: center;">
+			<a href="#" target="_blank">
+				<img alt="Android app on Google Play" src="{% static 'images/playstore.png' %}"  style="width: 10%;"/>
+			</a>
+		</p>
+        </nav>
+</section>
+</body>
+</html>
+{% endblock %}
