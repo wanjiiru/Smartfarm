@@ -19,7 +19,7 @@ with tf.gfile.FastGFile(PATH_TO_MODEL, 'rb') as f:
 prob_tensor = sess.graph.get_tensor_by_name('loss:0')
 
 def recognise(uploads):
-    image = Image.open(uploads)
+    image = Image.open(uploads).convert('RGB')
     augmented_image = prepareimage(image)
     predictions, = sess.run(prob_tensor, {'Placeholder:0': [augmented_image]})
     results = list(zip(labels, map(lambda d: '{:.2f}'.format(d * 100), predictions)))

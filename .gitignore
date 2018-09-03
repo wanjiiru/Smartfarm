@@ -1,4 +1,5 @@
 virtual/
 .env
 .vscode/
-virtenv/
+*.pyc
+.idea/
