@@ -22,9 +22,9 @@ def recognise(uploads):
     image = Image.open(uploads).convert('RGB')
     augmented_image = prepareimage(image)
     predictions, = sess.run(prob_tensor, {'Placeholder:0': [augmented_image]})
-    results = list(zip(labels, map(lambda d: '{:.2f}'.format(d * 100), predictions)))
+    results = list(enumerate(map(lambda d: '{:.2f}'.format(d * 100), predictions)))
     results.sort(key=lambda x: -float(x[1]))
-    return dict(results)
+    return results
 
 
 if __name__ == '__main__':

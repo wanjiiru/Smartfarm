@@ -103,7 +103,7 @@
             <state relative-caret-position="61">
               <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -455,7 +455,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/farmapp/templates/how.html">
+    <entry file="file://$PROJECT_DIR$/farmapp/templates/results.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
@@ -479,7 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/farmapp/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />

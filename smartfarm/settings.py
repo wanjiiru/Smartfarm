@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 from decouple import config,Csv
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,17 +24,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'liz'
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS',cast=Csv())
 MODE = config("MODE", default="dev")
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.gis',
     'farmapp',
     'social_django',
     'bootstrap4',
@@ -61,7 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'smartfarm.urls'
@@ -129,7 +132,7 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 if config('MODE')=="dev":
    DATABASES = {
        'default': {
-           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'ENGINE': 'django.contrib.gis.db.backends.postgis',
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
@@ -203,3 +206,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Login Redirect
 LOGIN_REDIRECT_URL = 'index'
+django_heroku.settings(locals())

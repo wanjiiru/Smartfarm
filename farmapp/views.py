@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.db import transaction
-from .models import Profile
+from .models import Profile,Diseases
 from .models import Image
 from .brain.brain import recognise
 from .forms import ImageForm
@@ -40,14 +40,15 @@ def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            # add=form.save(commit=False)
-            # add.owner = current_user
+            add=form.save(commit=False)
             image = next(request.FILES.values()).read()
             results = recognise(BytesIO(image))
-
             buffer = b64encode(image)
 
-            # add.save()
+            results = [[Diseases.objects.get(pk = dis+1),prob] for dis,prob in results]
+
+
+            add.save()
             return render(request, 'results.html', locals())
     else:
         form = ImageForm()
