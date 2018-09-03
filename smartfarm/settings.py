@@ -38,7 +38,6 @@ MODE = config("MODE", default="dev")
 INSTALLED_APPS = [
     'django.contrib.gis',
     'farmapp',
-    'social_django',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
