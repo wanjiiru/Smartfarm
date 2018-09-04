@@ -11,6 +11,8 @@ from .brain.brain import recognise
 from .forms import ImageForm
 from base64 import b64encode
 from io import BytesIO
+from django.contrib.gis.geos import Point
+
 
 # Create your views here.
 def index(request):
@@ -38,22 +40,26 @@ def add_image(request):
     current_user = request.user
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
+        print(request.POST['pic'])
+        coordinates = request.POST.get('coordinates')
+        coords = coordinates.split(',')
+        point = Point(float(coords[0]), float(coords[1]))
+        image = Image(location=point, pic=request.POST['pic'])
+        image.save()
         if form.is_valid():
             add=form.save(commit=False)
-            image = next(request.FILES.values()).read()
+            # image = next(request.FILES.values()).read()
+            image = next(request.POST['pic']).read()
             results = recognise(BytesIO(image))
             buffer = b64encode(image)
 
             results = [[Diseases.objects.get(pk = dis+1),prob] for dis,prob in results]
-            
-
             add.save()
             return render(request, 'results.html', locals())
     else:
         form = ImageForm()
-
-
     return render(request,'image.html',locals())
+
 
 def how_it_works(request):
 
