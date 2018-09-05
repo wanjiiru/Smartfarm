@@ -13,7 +13,7 @@ from base64 import b64encode
 from io import BytesIO
 
 # Create your views here.
-
+@login_required
 def index(request):
     return render(request, 'index.html', {})
 
@@ -35,6 +35,7 @@ def update_profile(request):
 
     return render(request, 'index.html',{"user_form":user_form,"profile_form":profile_form})
 
+@login_required
 def add_image(request):
     current_user = request.user
     if request.method == 'POST':
@@ -56,6 +57,6 @@ def add_image(request):
 
     return render(request,'image.html',locals())
 
+@login_required
 def how_it_works(request):
-
     return render(request,'how.html', locals())
