@@ -89,11 +89,6 @@
         {% endblock %}
 
     <script>
-{#        var mymap;#}
-{#        $(document).ready(function(){#}
-{#             mymap = L.map('id_location_map').setView([-1.3, 36.78], 15);#}
-{#                 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Tiles by openstreetmap'}).addTo(mymap);});#}
-{#        #}
         $(document).ready(function(){
     var map = L.map('id_location_map').setView([-0.261360, 35.050093], 8);
             mapLink ='<a href="http://openstreetmap.org">OpenStreetMap</a>';
@@ -115,15 +110,18 @@
               $('#coordinates').val(lng + ',' + lat)
             }
             map.on('click', onMapClick);
+            function moveto(loca){
+                let lat = loca.coords.latitude;
+                let lng = loca.coords.longitude;
+                map.setView([lat, lng], 13);
+                marker = L.marker([lat, lng]).addTo(map);
+                $('#coordinates').val(lng + ',' + lat)
+            }
+           navigator.geolocation.getCurrentPosition(moveto)
         });
 
 
     </script>
-
-
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -133,7 +131,7 @@
               <div class="form-group">
                 <label for="formGroupExampleInput">Location</label>
                 <div id='id_location_map' style="height: 400px"></div>
-                <input id="coordinates" name="coordinates" class="form-control" value="" required>
+                <input id="coordinates" name="coordinates" class="form-control" type="hidden" value="" required>
               </div>
               <button class='btn btn-success'>submit</button>
 
