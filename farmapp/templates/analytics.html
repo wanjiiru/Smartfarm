@@ -4,8 +4,6 @@
 {% load static %}
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +22,6 @@
     <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=latin,greek" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{% static 'css/combined.min.css' %}">
 </head>
-<body>
 
 <header class="app-bar promote-layer">
 	<div class="app-bar-container" style="background-color: #97e6a9">
@@ -34,23 +31,10 @@
 
 </header>
 	{% include 'navbar.html' %}
-	<section class="container" id="chart"></section>
-	<section>
-	        <nav class="navdrawer-container promote-layer " style="background-color: rgba(0,0,0,.87);" id="contact">
-	            <div class="container text-center">
-	                <p>Contact</p>
-				<blockquote style="text-align: center">
-					E-mail: <a href="mailto:liz240@live.com">info@shambadoc.co.ke</a>
-				</blockquote>
-	            </div>
 
-			<p style="text-align: center;">
-				<a href="#" target="_blank">
-					<img alt="Android app on Google Play" src="{% static 'images/playstore.png' %}"  style="width: 10%;"/>
-				</a>
-			</p>
-	        </nav>
-	</section>
+
+    <section class="container" id="chart">
+
 <script type="text/javascript">
 Highcharts.chart('chart', {
 	chart: {
@@ -105,6 +89,22 @@ Highcharts.chart('chart', {
 	}]
 });
 </script>
-</body>
-</html>
+    </section>
+
+<section>
+	        <nav class="navdrawer-container promote-layer " style="background-color: rgba(0,0,0,.87);" id="contact">
+	            <div class="container text-center">
+	                <p>Contact</p>
+				<blockquote style="text-align: center">
+					E-mail: <a href="mailto:liz240@live.com">info@shambadoc.co.ke</a>
+				</blockquote>
+	            </div>
+
+			<p style="text-align: center;">
+				<a href="#" target="_blank">
+					<img alt="Android app on Google Play" src="{% static 'images/playstore.png' %}"  style="width: 10%;"/>
+				</a>
+			</p>
+	        </nav>
+	</section>
 {% endblock %}
