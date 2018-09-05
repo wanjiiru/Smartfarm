@@ -89,13 +89,8 @@
         {% endblock %}
 
     <script>
-{#        var mymap;#}
-{#        $(document).ready(function(){#}
-{#             mymap = L.map('id_location_map').setView([-1.3, 36.78], 15);#}
-{#                 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Tiles by openstreetmap'}).addTo(mymap);});#}
-{#        #}
         $(document).ready(function(){
-    var map = L.map('id_location_map').setView([-0.261360, 35.050093], 8);
+    var map = L.map('id_location_map').setView([-0.261360, 35.050093], 7);
             mapLink ='<a href="http://openstreetmap.org">OpenStreetMap</a>';
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; ' + mapLink,
@@ -119,10 +114,7 @@
 
 
     </script>
-
-
-
-
+    <hr>
 
 <div class="container">
     <div class="row">
@@ -132,7 +124,7 @@
                 {% bootstrap_form form %}
               <div class="form-group">
                 <label for="formGroupExampleInput">Location</label>
-                <div id='id_location_map' style="height: 400px"></div>
+                <div id='id_location_map' style="height: 800px;width:100vh"></div>
                 <input id="coordinates" name="coordinates" class="form-control" value="" required>
               </div>
               <button class='btn btn-success'>submit</button>

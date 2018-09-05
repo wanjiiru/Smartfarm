@@ -22,8 +22,4 @@ def run(verbose=True):
         County, county_shp, county_mapping,
         transform=False, encoding='iso-8859-1',
     )
-<<<<<<< HEAD
     lm.save(strict=True, verbose=verbose)
-=======
-    lm.save(strict=True, verbose=verbose)
->>>>>>> liz
