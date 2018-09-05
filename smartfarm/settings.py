@@ -37,6 +37,7 @@ MODE = config("MODE", default="dev")
 
 INSTALLED_APPS = [
     'django.contrib.gis',
+    'leaflet',
     'farmapp',
     'bootstrap4',
     'django.contrib.admin',

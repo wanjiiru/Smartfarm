@@ -1,12 +1,11 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
+from django.contrib.gis.db import models as geomodels
+from django.contrib.gis.db.models import PointField
 from django.db.models.signals import post_save
+from django.contrib.gis.gdal import DataSource
 from django.dispatch import receiver
-import datetime as dt
-from django.contrib.postgres.fields import ArrayField
-
-
-
+from smartfarm.settings import BASE_DIR
 
 # Create your models here.
 class Profile(models.Model):
@@ -14,15 +13,16 @@ class Profile(models.Model):
     email = models.EmailField(max_length=254,null=True)
     bio = models.TextField(max_length=500,blank=True)
     location = models.CharField(max_length=30,blank=True)
- 
 
     def __str__(cls):
         return cls.user
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
@@ -31,60 +31,15 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class Image(models.Model):
-    counties = (
-        ('Baringo County', 'Baringo County'),
-        ('Bomet County', 'Bomet County'),
-        ('Bungoma County', 'Bungoma County'),
-        ('Busia County', 'Busia County'),
-        ('Elgeyo Marakwet County', 'Elgeyo Marakwet County'),
-        ('Embu County', 'Embu County'),
-        ('Garissa County', 'Garissa County'),
-        ('Homa Bay County', 'Homa Bay County'),
-        ('Isiolo County', 'Isiolo County'),
-        ('Kajiado County', 'Kajiado County'),
-        ('Kakamega County', 'Kakamega County'),
-        ('Kericho County', 'Kericho County'),
-        ('Kiambu County', 'Kiambu County'),
-        ('Kilifi County', 'Kilifi County'),
-        ('Kirinyaga County', 'Kirinyaga County'),
-        ('Kisii County', 'Kisii County'),
-        ('Kisumu County', 'Kisumu County'),
-        ('Kitui County', 'Kitui County'),
-        ('Kwale County', 'Kwale County'),
-        ('Laikipia County', 'Laikipia County'),
-        ('Lamu County', 'Lamu County'),
-        ('Machakos County', 'Machakos County'),
-        ('Makueni County', 'Makueni County'),
-        ('Mandera County', 'Mandera County'),
-        ('Meru County', 'Meru County'),
-        ('Migori County', 'Migori County'),
-        ('Marsabit County', 'Marsabit County'),
-        ('Mombasa County', 'Mombasa County'),
-        ('Muranga County', 'Muranga County'),
-        ('Nairobi County', 'Nairobi County'),
-        ('Nakuru County', 'Nakuru County'),
-        ('Nandi County', 'Nandi County'),
-        ('Narok County', 'Narok County'),
-        ('Nyamira County', 'Nyamira County'),
-        ('Nyandarua County', 'Nyandarua County'),
-        ('Nyeri County', 'Nyeri County'),
-        ('Samburu County', 'Samburu County'),
-        ('Siaya County', 'Siaya County'),
-        ('Taita Taveta County', 'Taita Taveta County'),
-        ('Tana River County', 'Tana River County'),
-        ('Tharaka Nithi County', 'Tharaka Nithi County'),
-        ('Trans Nzoia County', 'Trans Nzoia County'),
-        ('Turkana County', 'Turkana County'),
-        ('Uasin Gishu County', 'Uasin Gishu County'),
-        ('Vihiga County', 'Vihiga County'),
-        ('Wajir County', 'Wajir County'),
-        ('West Pokot County', 'West Pokot County'),
-    )
-    location = models.CharField(max_length=255, choices=counties)
-    pic = models.ImageField()
+    location =models.PointField()
+    pic = models.ImageField(upload_to='gross')
+    locality = models.ForeignKey('County')
 
-    def __str__(self):
-        return self.pic
+    def save(self,*args,**kwargs):
+        commit = kwargs.get('commit')
+        if commit is None or commit == True:
+            self.locality = next(county for county in County.objects.all() if county.geom.contains(self.location))
+        super().save(*args,**kwargs)
 
 
 class Diseases(models.Model):
@@ -97,6 +52,20 @@ class Diseases(models.Model):
         return self.name
 
 
-class detect(models.Model):
-    location = models.TextField()
-    disease = models.ForeignKey(Diseases)
+class County(models.Model):
+    objectid = models.IntegerField()
+    area = models.FloatField()
+    perimeter = models.FloatField()
+    county3_field = models.FloatField()
+    county3_id = models.FloatField()
+    county = models.CharField(max_length=20)
+    shape_leng = models.FloatField()
+    shape_area = geomodels.FloatField()
+    geom = geomodels.MultiPolygonField(srid=4326)
+
+    def __str__(self):
+        return f"{self.county}"
+
+    class Meta:
+        verbose_name_plural = 'County'
+
