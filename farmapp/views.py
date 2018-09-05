@@ -56,21 +56,11 @@ def add_image(request):
             buffer = b64encode(image)
 
             results = [[Diseases.objects.get(pk = dis+1),prob] for dis,prob in results]
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 919dc27da3bcecfaf68a09ab4e834daba277fb90
             add.save()
             return render(request, 'results.html', locals())
     else:
         form = ImageForm()
     return render(request,'image.html',locals())
 
-<<<<<<< HEAD
-@login_required
-=======
-
->>>>>>> 919dc27da3bcecfaf68a09ab4e834daba277fb90
 def how_it_works(request):
     return render(request,'how.html', locals())
