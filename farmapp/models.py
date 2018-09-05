@@ -1,10 +1,8 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
-<<<<<<< HEAD
-# from django.db import models
-=======
+from requests.utils import quote
+import requests
 from django.contrib.gis.db.models import PointField
->>>>>>> 919dc27da3bcecfaf68a09ab4e834daba277fb90
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -56,4 +54,13 @@ class Diseases(models.Model):
 class detect(models.Model):
     location = models.TextField()
     disease = models.ForeignKey(Diseases)
+    locality = models.TextField()
 
+    def save(self,*args,**kwargs):
+        # get lat,lon from liz
+        url = 'http://www.datasciencetoolkit.org/coordinates2politics/' + quote(f'[["{lat}","{lon}"]]')
+        respo = requests.get(url)
+        zones = respo[0]['politics']
+        country, county = [x['name'] for x in zones]
+        self.locality = county
+        super().save(*args,**kwargs)
