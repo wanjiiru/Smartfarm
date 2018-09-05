@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'leaflet',
     'farmapp',
+    'social_django',
     'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
