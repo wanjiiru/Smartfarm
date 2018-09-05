@@ -1850,7 +1850,7 @@ li>p {
     font-weight: 400
 }
 
-@media only screen and (min-width:620px) {
+@media only screen and (min-width:845px) {
     .article-nav-link::before {
         top: 25px;
         font-size: 26px;
