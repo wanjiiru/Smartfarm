@@ -6,4 +6,4 @@ from django.contrib.gis.db.models import PointField
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ('location',)
+        exclude = ('location', 'locality')

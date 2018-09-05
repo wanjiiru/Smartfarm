@@ -42,20 +42,20 @@ def add_image(request):
     current_user = request.user
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
-        print(request.POST['pic'])
+        # print(request.POST['pic'])
         coordinates = request.POST.get('coordinates')
         coords = coordinates.split(',')
         point = Point(float(coords[0]), float(coords[1]))
-        image = Image(location=point, pic=request.POST['pic'])
-        image.save()
         if form.is_valid():
             add=form.save(commit=False)
-            # image = next(request.FILES.values()).read()
-            image = next(request.POST['pic']).read()
+            image = next(request.FILES.values()).read()
+            # image = next(request.POST['pic']).read()
             results = recognise(BytesIO(image))
             buffer = b64encode(image)
-
-            results = [[Diseases.objects.get(pk = dis+1),prob] for dis,prob in results]
+            img = form.save(commit=False)
+            img.location = point
+            img.save()
+            results = [[Diseases.objects.get(pk = dis+1), prob] for dis, prob in results]
             add.save()
             return render(request, 'results.html', locals())
     else:
@@ -64,3 +64,10 @@ def add_image(request):
 
 def how_it_works(request):
     return render(request,'how.html', locals())
+
+
+def analytics(request):
+    # data points
+    detects = Image.objects.all()
+    counties = [x.locality for x in detects]
+    return render(request, 'analytics.html', locals())

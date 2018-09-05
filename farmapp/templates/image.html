@@ -55,15 +55,15 @@
 </header>
 
 
-
-<nav class="navdrawer-container promote-layer">
+	{% include 'navbar.html' %}
+<!-- <nav class="navdrawer-container promote-layer">
 	<h4>Navigation</h4>
 	<ul>
 		<li><a href="/">Home</a></li>
 		<li><a href="{% url 'how' %}">How it works</a></li>
         <li><a href="#">Map View</a></li>
 	</ul>
-</nav>
+</nav> -->
 
 
 
@@ -125,38 +125,23 @@
 
 
 <div class="container">
-  {% include 'navbar.html' %}
     <div class="row">
         <div class="col-md-8">
-{#            <form action="{% url 'upload_image' %}" method="POST" enctype="multipart/form-data">#}
-{#                {% csrf_token %}#}
-{#                <input type="submit" class="btn btn-success btn-lg" value="POST">#}
-{#            </form>#}
-            <form action="{% url 'upload_image' %}" method="post">{% csrf_token %}
-                                {% bootstrap_form form %}
-{#      <div class="form-group">#}
-{#        <label for="image">Image</label>#}
-{#          <input type='file' id="image" accept=".png, .jpg, .jpeg" />#}
-{#          {% comment %} <input type="datetime-local"#}
-{#        name="party-time" value="2018-06-12T19:30"#}
-{#        min="2018-06-07T00:00" max="2018-06-14T00:00" name="when" class="form-control" id="when"/> {% endcomment %}#}
-{#      </div>#}
-      <div class="form-group">
-        <label for="formGroupExampleInput">Location</label>
-        <div id='id_location_map' style="height: 400px"></div>
-        <input id="coordinates" name="coordinates" class="form-control" value="" required>
-      </div>
-      <button class='btn btn-success'>submit</button>
+            <form action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+              <div class="form-group">
+                <label for="formGroupExampleInput">Location</label>
+                <div id='id_location_map' style="height: 400px"></div>
+                <input id="coordinates" name="coordinates" class="form-control" value="" required>
+              </div>
+              <button class='btn btn-success'>submit</button>
 
-  </form>
+          </form>
         </div>
     </div>
 </div>
 
 {{ form.media }}
 {% endblock %}
-<<<<<<< HEAD
-=======
 </body>
-</html>
->>>>>>> 919dc27da3bcecfaf68a09ab4e834daba277fb90

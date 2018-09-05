@@ -1,4 +1,4 @@
-from .models import Image, Diseases, detect
+from .models import Image, Diseases, County
 from django.contrib import admin
 from django.contrib.gis import admin as geoAdmin
 # from django.forms import ModelForm
@@ -22,7 +22,7 @@ class ImageAdmin(geoAdmin.OSMGeoAdmin):
 
 admin.site.register(Image,ImageAdmin)
 admin.site.register(Diseases)
-admin.site.register(detect)
+admin.site.register(County)
 
 
 # from .models import Car, Victim,Accident,County,AnonymousReporter
