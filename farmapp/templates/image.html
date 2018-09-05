@@ -90,13 +90,12 @@
 
     <script>
         $(document).ready(function(){
-    var map = L.map('id_location_map').setView([-0.261360, 35.050093], 7);
+    var map = L.map('id_location_map').setView([-0.261360, 35.050093], 8);
             mapLink ='<a href="http://openstreetmap.org">OpenStreetMap</a>';
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'Map data &copy; ' + mapLink,
               maxZoom:32,
               }).addTo(map);
-
             function onMapClick(e) {
               var lat = e.latlng.lat;
               var lng = e.latlng.lng;
@@ -110,9 +109,15 @@
               $('#coordinates').val(lng + ',' + lat)
             }
             map.on('click', onMapClick);
+            function moveto(loca){
+                let lat = loca.coords.latitude;
+                let lng = loca.coords.longitude;
+                map.setView([lat, lng], 13);
+                marker = L.marker([lat, lng]).addTo(map);
+                $('#coordinates').val(lng + ',' + lat)
+            }
+           navigator.geolocation.getCurrentPosition(moveto)
         });
-
-
     </script>
     <hr>
 

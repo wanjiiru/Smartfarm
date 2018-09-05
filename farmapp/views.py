@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.db import transaction
-from .models import Profile,Diseases
-from .models import Image
+from .models import Profile, Diseases, Image
 from .brain.brain import recognise
 from .forms import ImageForm
 from base64 import b64encode
@@ -18,6 +17,7 @@ from django.contrib.gis.geos import Point
 @login_required
 def index(request):
     return render(request, 'index.html', {})
+
 
 @login_required
 @transaction.atomic
@@ -62,6 +62,7 @@ def add_image(request):
         form = ImageForm()
     return render(request,'image.html',locals())
 
+
 def how_it_works(request):
     return render(request,'how.html', locals())
 
@@ -69,5 +70,5 @@ def how_it_works(request):
 def analytics(request):
     # data points
     detects = Image.objects.all()
-    counties = [x.locality for x in detects]
+    counties = [x.locality.county for x in detects]
     return render(request, 'analytics.html', locals())

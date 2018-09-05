@@ -1,5 +1,3 @@
-
-
 COPY public.farmapp_diseases (id, name, "Image", control, symptoms) FROM stdin;
 1	Grey leaf Spot	gross/maize_grey_leaf.jpg	Use of tolerant / resistant varieties\r\nGood field sanitation (removal of crop residue after harvest or deep ploughing of crop residues)\r\nUse certified seeds\r\nCrop rotation	They are initially light brownish in colour, and with age they bleach to ashen grey surrounded by narrow light-brownish border. When wet, spore mass is formed on the spots with a light shade.
 2	Leaf Blights	gross/maize_blight.jpg	Use of tolerant / resistant varieties\r\nGood field sanitation (removal of crop residue after harvest or deep ploughing of crop residues)\r\nUse certified seeds\r\nCrop rotation	Small yellow dots that become elongated between veins appear. They later become brownish to creamy white in colour with reddish to purplish brown borders. The spots may join together and result in blighting of entire leaves. Silks, portions of the husks and cobs may turn black. A black mould may develop on cobs.
