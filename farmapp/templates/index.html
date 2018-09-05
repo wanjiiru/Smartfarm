@@ -30,31 +30,36 @@
 		<h1 class="logo"><img src="{% static 'images/wixlogo.jpg' %}" alt="smartshamba" style="border-radius: 60%;"></h1>
 	</div>
 </header>
+<<<<<<< HEAD
 
 	{% include 'navbar.html' %}
 <!-- <nav class="navdrawer-container promote-layer">
+=======
+<nav class="navdrawer-container promote-layer">
+    <div id="navbarCollapse" class="navbar">
+
+>>>>>>> liz
 	<h4>Navigation</h4>
 	<ul>
 		<li><a href="{% url 'index' %}">Home</a></li>
 		<li><a href="{% url 'how' %}">How it works</a></li>
         <li><a href="{% url 'upload_image' %}">Upload Image</a></li>
+<<<<<<< HEAD
 				<li><a href="#contact">Contact</a></li>
         <li><a href="#">Map View</a></li>
 	</ul>
 </nav> -->
+=======
+		<li><a href="#contact">Contact</a></li>
+        <li><a href="#">Analytics</a></li>
+	</ul>
+    </div>
+</nav>
+>>>>>>> liz
 
 <main>
 
-	<section class="styleguide__page-header">
-		<div class="page-header">
-            <hr>
-			<div class="container">
-				<p class="page-header__excerpt g-wide--push-1 g-wide--pull-1">
-					Shamba Doctor is a ​mobile application aiming to improve pest management decisions by making crop diagnosis more accurate,
-				</p>
-			</div>
-		</div>
-	</section>
+
 
 	<section>
 		<div class="container">
@@ -83,6 +88,15 @@
 			</ul>
 		</div>
 	</section>
+    <section class="styleguide__page-header">
+		<div class="page-header">
+			<div class="container">
+				<p class="page-header__excerpt g-wide--push-1 g-wide--pull-1">
+					Shamba Doctor is a ​mobile application aiming to improve pest management decisions by making crop diagnosis more accurate,
+				</p>
+			</div>
+		</div>
+	</section>
 
 
 </main>
@@ -92,7 +106,7 @@
 		<div class="container-medium">
 			<div class="featured-spotlight__container g--pull-half">
 				<div class="featured-spotlight__img">
-					<img src="{% static 'images/eggplant.jpeg' %}" alt="wide image placeholder example">
+					<img src="{% static 'images/smartphone-features-bg.jpg' %}" alt="wide image placeholder example">
 				</div>
 				<div class="container-small">
 					<h3 class="large" id="excellence">Technical Excellence</h3>
